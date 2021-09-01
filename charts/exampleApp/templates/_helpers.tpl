@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "exampleApp.name" -}}
+{{- define "exampleapp.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "exampleApp.fullname" -}}
+{{- define "exampleapp.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "exampleApp.chart" -}}
+{{- define "exampleapp.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "exampleApp.labels" -}}
-helm.sh/chart: {{ include "exampleApp.chart" . }}
-{{ include "exampleApp.selectorLabels" . }}
+{{- define "exampleapp.labels" -}}
+helm.sh/chart: {{ include "exampleapp.chart" . }}
+{{ include "exampleapp.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,17 +45,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "exampleApp.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "exampleApp.name" . }}
+{{- define "exampleapp.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "exampleapp.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "exampleApp.serviceAccountName" -}}
+{{- define "exampleapp.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "exampleApp.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "exampleapp.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
