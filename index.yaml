@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  testapp:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-09-01T13:09:39.5112062+02:00"
+    description: A Helm chart for Kubernetes
+    digest: 717c6f48df9e0eea690d43370f53c3f588d54d4edab002184a654441382f3045
+    name: testapp
+    type: application
+    urls:
+    - https://github.com/helm-jwf-test/my-helm-charts/releases/download/testapp-0.1.0/testapp-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-09-01T13:09:39.5112062+02:00"
